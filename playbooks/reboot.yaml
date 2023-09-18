@@ -1,7 +1,7 @@
 ---
 - name: reboot machine
   hosts: "{{ hosts }}"
-  become: yes
+  become: true
   tasks:
   - name: reboot machine
     reboot:
