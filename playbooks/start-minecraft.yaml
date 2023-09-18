@@ -1,0 +1,8 @@
+---
+- hosts: minecraft02.int.local
+  become: true
+  tasks:
+    - name: start vanilla minecraft server
+      command: sh /home/borris/start.sh
+      args: 
+        chdir: /home/borris
