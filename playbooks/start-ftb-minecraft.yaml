@@ -4,3 +4,5 @@
   tasks:
     - name: start ftb minecraft server
       command: sh /direwolf20-1.19/start.sh
+      args: 
+        chdir: /direwolf20-1.19
