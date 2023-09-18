@@ -2,7 +2,6 @@
 - name: reboot machine
   hosts: "{{ hosts }}"
   become: true
-  become_user: root
   tasks:
   - name: reboot machine
     reboot:
