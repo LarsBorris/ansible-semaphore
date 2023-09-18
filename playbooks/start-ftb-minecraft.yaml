@@ -3,4 +3,4 @@
   become: true
   tasks:
     - name: start ftb minecraft server
-      script: /direwolf20-1.19/start.sh
+      command: sh /direwolf20-1.19/start.sh
