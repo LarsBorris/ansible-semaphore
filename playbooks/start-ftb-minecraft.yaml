@@ -1,5 +1,5 @@
 ---
-- hosts: minecraft03.int.local
+- hosts: mc03.int.local
   become: true
   tasks:
     - name: start ftb minecraft server
