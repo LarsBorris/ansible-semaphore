@@ -2,7 +2,7 @@
 - hosts: mc03.int.local
   become: true
   tasks:
-    - name: start ftb minecraft server
+    - name: start all the mods 9 sky minecraft server
       command: sh /minecraft/server-1.1.1/run-ansible.sh
       args: 
         chdir: /minecraft/server-1.1.1
