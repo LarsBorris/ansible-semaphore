@@ -5,4 +5,4 @@
     - name: start all the mods 9 sky minecraft server
       command: sh /minecraft/server-1.1.2/run-ansible.sh
       args: 
-        chdir: /minecraft/server-1.1.1
+        chdir: /minecraft/server-1.1.2
