@@ -1,0 +1,7 @@
+---
+- name: restart ntpsec
+  hosts: "{{ hosts }}"
+  become: true
+  tasks:
+    - name: restart the ntpsec daemon
+      command: systemctl restart ntpsec
