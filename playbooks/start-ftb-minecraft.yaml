@@ -3,6 +3,6 @@
   become: true
   tasks:
     - name: start ftb minecraft server
-      command: sh /minecraft/direwolf-1.7.0/run.sh
+      command: sh /minecraft/direwolf-1.8.2/run.sh
       args: 
-        chdir: /minecraft/direwolf-1.7.0
+        chdir: /minecraft/direwolf-1.8.2
