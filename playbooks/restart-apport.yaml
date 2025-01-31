@@ -1,0 +1,7 @@
+---
+- name: restart apport
+  hosts: "{{ hosts }}"
+  become: true
+  tasks:
+    - name: restart the apport daemon
+      command: systemctl restart apport
