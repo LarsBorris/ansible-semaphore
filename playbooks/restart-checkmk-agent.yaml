@@ -2,6 +2,11 @@
 - name: restart checkmk-agent
   hosts: "{{ hosts }}"
   become: true
-  shell: |
-    systemctl restart cmk-agent-ctl-daemon.service
-    systemctl restart check-mk-agent-async.service
+  tasks:
+    - name: restart the checkmk-agent daemon
+      command: "{{ item }}"
+      with_items:
+        - "systemctl restart cmk-agent-ctl-daemon.service"
+        - "systemctl restart check-mk-agent-async.service"
+      
+     
