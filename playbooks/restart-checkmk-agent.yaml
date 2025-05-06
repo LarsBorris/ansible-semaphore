@@ -4,4 +4,5 @@
   become: true
   tasks:
     - name: restart the checkmk-agent daemon
-      command: systemctl restart cmk-agent-ctl-daemon.service && systemctl restart check-mk-agent-async.service
+      command: systemctl restart cmk-agent-ctl-daemon.service
+      command: systemctl restart check-mk-agent-async.service
