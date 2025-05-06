@@ -1,8 +1,8 @@
 ---
-- hosts: mc03.int.local
+- hosts: mc01.int.local
   become: true
   tasks:
     - name: start ftb minecraft server
-      command: sh /minecraft/direwolf-1.8.2/run.sh
+      command: sh /minecraft/FTB-Evolution/1.16.0//run.sh
       args: 
-        chdir: /minecraft/direwolf-1.8.2
+        chdir: /minecraft/FTB-Evolution/1.16.0
