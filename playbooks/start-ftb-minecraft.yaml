@@ -3,6 +3,6 @@
   become: true
   tasks:
     - name: start ftb minecraft server
-      command: sh /minecraft/FTB-Evolution/1.16.0//run.sh
+      command: sh /minecraft/FTB-Evolution/1.18.0/run.sh
       args: 
-        chdir: /minecraft/FTB-Evolution/1.16.0
+        chdir: /minecraft/FTB-Evolution/1.18.0
