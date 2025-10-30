@@ -1,0 +1,8 @@
+---
+- hosts: mc01.int.local
+  become: true
+  tasks:
+    - name: start all the mods 10 minecraft server
+      command: sh /minecraft/ATM10/4.10/startserver.sh
+      args: 
+        chdir: /minecraft/ATM10/4.10
