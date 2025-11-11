@@ -1,6 +1,6 @@
 ---
 - name: Install Checkmk Agent on Ubuntu 24.04 Servers
-  hosts: all
+  hosts: "{{ hosts }}"
   become: true
   tasks:
 
