@@ -14,10 +14,3 @@
       apt:
         deb: /tmp/check-mk-agent_2.4.0p14-1_all.deb
         state: present
-
-    - name: Ensure check-mk-agent service is enabled and running (if applicable)
-      service:
-        name: check-mk-agent
-        enabled: yes
-        state: started
-      ignore_errors: yes  # In case the agent doesn't use a systemd service
