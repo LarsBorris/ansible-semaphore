@@ -13,4 +13,4 @@
     - name: Log opdateringsresultat
       copy:
         content: "{{ update_result | to_nice_json }}"
-        dest: C:\Temp\update_log.json
+        dest: C:\Windows\Temp\update_log.json
