@@ -7,4 +7,11 @@
       win_updates:
         accept_all_updates: yes
         reboot: yes
-        reboot_timeout: 1200
+        reboot_timeout: 1800
+        server_selection: windows_update
+      register: update_result
+
+    - name: Log opdateringsresultat
+      copy:
+        content: "{{ update_result | to_nice_json }}"
+        dest: C:\Temp\update_log.json
