@@ -5,7 +5,14 @@
   tasks:
     - name: Installer alle opdateringer via Windows Update
       win_updates:
-        server_selection: windows_update    # korrekt værdi
+        server_selection: windows_update
+        category_names: 
+          - CriticalUpdates
+          - SecurityUpdates
+          - Updates
+          - UpdateRollups
+          - FeaturePacks
+          - DefinitionUpdates
         reboot: yes
         reboot_timeout: 1800
       register: update_result
