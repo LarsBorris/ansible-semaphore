@@ -3,12 +3,11 @@
   hosts: "{{ hosts }}"
   gather_facts: no
   tasks:
-    - name: Installer alle tilgængelige opdateringer
+
+   - name: Installer alle tilgængelige opdateringer
       win_updates:
-        accept_all_updates: yes
         reboot: yes
         reboot_timeout: 1800
-        server_selection: windows_update
       register: update_result
 
     - name: Log opdateringsresultat
