@@ -1,0 +1,11 @@
+---
+- name: Reboot Windows servere
+  hosts: "{{ hosts }}"   # vælg dine Windows-værter i Semaphore
+  gather_facts: no
+  tasks:
+    - name: Genstart nu
+      win_reboot:
+        reboot_timeout: 1800     # op til 30 min til at komme tilbage
+        msg: "Planlagt reboot via Ansible"
+        pre_reboot_delay: 10     # 10 sekunders varsel
+        post_reboot_delay: 30    # vent 30 sek efter opstart før næste task
