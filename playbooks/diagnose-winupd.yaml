@@ -1,0 +1,15 @@
+---
+- name: Diagnose Windows Update tilbud
+  hosts: "{{ hosts }}"
+  gather_facts: no
+  tasks:
+    - name: Søg efter opdateringer (ingen installation)
+      win_updates:
+        server_selection: default
+        state: searched
+      register: scan
+
+    - name: Gem scan-resultat
+      copy:
+        content: "{{ scan | to_nice_json }}"
+        dest: C:\Temp\wu_scan.json
