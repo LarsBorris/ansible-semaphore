@@ -13,6 +13,7 @@
           - UpdateRollups
           - FeaturePacks
           - DefinitionUpdates
+          - Upgrades
         reboot: yes
         reboot_timeout: 1800
       register: update_result
