@@ -5,8 +5,6 @@
   tasks:
     - name: Installer alle tilgængelige opdateringer
       win_updates:
-        category_names:
-          - SecurityUpdates
-          - CriticalUpdates
+        accept_all_updates: yes
         reboot: yes
-        reboot_timeout: 3600
+        reboot_timeout: 1200
