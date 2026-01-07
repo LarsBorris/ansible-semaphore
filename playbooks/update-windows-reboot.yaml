@@ -1,9 +1,12 @@
 ---
-- hosts: "{{ hosts }}"
-  become: true
+- name: Run Windows Update
+  hosts: "{{ hosts }}"
+  gather_facts: no
   tasks:
-    - name: Install all updates and reboot as many times as needed
-      ansible.windows.win_updates:
-        category_names: '*'
-        reboot: true
+    - name: Installer alle tilgængelige opdateringer
+      win_updates:
+        category_names:
+          - SecurityUpdates
+          - CriticalUpdates
+        reboot: yes
         reboot_timeout: 3600
