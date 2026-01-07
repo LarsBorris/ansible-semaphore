@@ -12,4 +12,4 @@
     - name: Gem scan-resultat
       copy:
         content: "{{ scan | to_nice_json }}"
-        dest: C:\Temp\wu_scan.json
+        dest: C:\Windows\Temp\wu_scan.json
