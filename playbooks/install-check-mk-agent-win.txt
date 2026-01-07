@@ -1,0 +1,16 @@
+---
+- name: Install Checkmk Agent on Windows Servers
+  hosts: "{{ hosts }}"
+  gather_facts: no
+  tasks:
+
+    - name: Download Checkmk agent MSI package
+      win_get_url:
+        url: https://monitor.staticfield.dk/prod/check_mk/agents/check_mk_agent.msi
+        dest: C:\Temp\check_mk_agent.msi
+
+    - name: Install Checkmk agent silently
+      win_package:
+        path: C:\Temp\check_mk_agent.msi
+        state: present
+        arguments: "/quiet /norestart"
