@@ -3,9 +3,9 @@
   hosts: "{{ hosts }}"
   gather_facts: no
   tasks:
-    - name: Installer alle opdateringer via Microsoft Update
+    - name: Installer alle opdateringer via Windows Update
       win_updates:
-        server_selection: microsoft_update     # Office, SQL osv. kommer med
+        server_selection: windows_update    # korrekt værdi
         reboot: yes
         reboot_timeout: 1800
       register: update_result
