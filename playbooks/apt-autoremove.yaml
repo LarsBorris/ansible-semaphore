@@ -1,0 +1,8 @@
+---
+- name: Fjern ubrugte pakker på Linux
+  hosts: linux_servers
+  become: yes
+  tasks:
+    - name: Kør apt autoremove
+      apt:
+        autoremove: yes
