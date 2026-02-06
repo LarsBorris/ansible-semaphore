@@ -2,6 +2,8 @@
 - name: check if system reboot is required
   hosts: "{{ hosts }}"
   become: yes
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
   tasks:
     - name: check if system reboot is required
       become: true
