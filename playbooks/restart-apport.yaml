@@ -2,6 +2,8 @@
 - name: restart apport
   hosts: "{{ hosts }}"
   become: true
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
   tasks:
     - name: restart the apport daemon
       command: systemctl restart apport

@@ -1,6 +1,8 @@
 ---
 - hosts: mc02.int.local
   become: true
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
   tasks:
     - name: start vanilla minecraft server
       command: sh /home/borris/start.sh

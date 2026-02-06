@@ -2,6 +2,8 @@
 - name: restart checkmk-agent
   hosts: "{{ hosts }}"
   become: true
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
   tasks:
     - name: restart the checkmk-agent daemon
       command: "{{ item }}"

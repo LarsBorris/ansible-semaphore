@@ -2,6 +2,8 @@
 - name: Fjern ubrugte pakker på Linux
   hosts: "{{ hosts }}"
   become: yes
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
   tasks:
     - name: Kør apt autoremove
       apt:

@@ -1,6 +1,8 @@
 ---
 - hosts: mc01.int.local
   become: true
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
   tasks:
     - name: start ftb minecraft server
       command: sh /minecraft/FTB-Evolution/1.18.0/run.sh

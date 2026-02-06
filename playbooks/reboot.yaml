@@ -2,6 +2,8 @@
 - name: reboot machine
   hosts: "{{ hosts }}"
   become: true
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
   tasks:
   - name: reboot machine
     reboot:
