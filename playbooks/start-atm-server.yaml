@@ -1,0 +1,10 @@
+---
+- hosts: mc01.int.local
+  become: true
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+  tasks:
+    - name: start all the mons 10 minecraft server
+      command: sh /minecraft/all-the-mons/6.6/startserver.sh
+      args: 
+        chdir: /minecraft/all-the-mons/6.6
