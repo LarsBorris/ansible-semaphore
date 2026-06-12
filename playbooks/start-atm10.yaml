@@ -5,6 +5,6 @@
     ansible_python_interpreter: /usr/bin/python3
   tasks:
     - name: start all the mods 10 minecraft server
-      command: sh /minecraft/ATM10/5.4/startserver.sh
+      command: sh /minecraft/ATM10/7.0/startserver.sh
       args: 
-        chdir: /minecraft/ATM10/5.4
+        chdir: /minecraft/ATM10/7.0
