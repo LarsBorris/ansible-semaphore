@@ -1,0 +1,30 @@
+---
+- name: Install Wazuh Agent on Windows
+  hosts: windows
+  gather_facts: no
+
+  vars:
+    wazuh_version: "4.14.5-1"
+    wazuh_msi: "wazuh-agent-{{ wazuh_version }}.msi"
+    wazuh_url: "https://packages.wazuh.com/4.x/windows/{{ wazuh_msi }}"
+    wazuh_manager_ip: "192.168.100.19"
+    wazuh_temp_path: "{{ ansible_env.TEMP }}\\{{ wazuh_msi }}"
+
+  tasks:
+
+    - name: Download Wazuh agent MSI
+      win_get_url:
+        url: "{{ wazuh_url }}"
+        dest: "{{ wazuh_temp_path }}"
+
+    - name: Install Wazuh agent with manager IP
+      win_package:
+        path: "{{ wazuh_temp_path }}"
+        arguments: "/q WAZUH_MANAGER={{ wazuh_manager_ip }}"
+        state: present
+
+    - name: Ensure Wazuh service is started
+      win_service:
+        name: Wazuh
+        state: started
+        start_mode: auto
