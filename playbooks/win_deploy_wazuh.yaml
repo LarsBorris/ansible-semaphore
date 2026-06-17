@@ -1,6 +1,6 @@
 ---
 - name: Install Wazuh Agent on Windows
-  hosts: windows
+  hosts: "{{ hosts }}"
   gather_facts: no
 
   vars:
