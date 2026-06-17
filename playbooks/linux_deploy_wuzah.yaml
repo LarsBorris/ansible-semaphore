@@ -1,0 +1,40 @@
+---
+- name: Install and configure Wazuh Agent
+  hosts: "{{ hosts }}"
+  become: yes
+
+  vars:
+    wazuh_version: "4.14.5-1"
+    wazuh_deb: "wazuh-agent_{{ wazuh_version }}_amd64.deb"
+    wazuh_url: "https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/{{ wazuh_deb }}"
+    wazuh_manager_ip: "192.168.100.19"
+
+  tasks:
+
+    - name: Download Wazuh agent package
+      get_url:
+        url: "{{ wazuh_url }}"
+        dest: "/tmp/{{ wazuh_deb }}"
+        mode: '0644'
+
+    - name: Install Wazuh agent with manager IP
+      command: >
+        dpkg -i /tmp/{{ wazuh_deb }}
+      environment:
+        WAZUH_MANAGER: "{{ wazuh_manager_ip }}"
+      args:
+        creates: /var/ossec/bin/wazuh-agentd
+
+    - name: Reload systemd daemon
+      systemd:
+        daemon_reload: yes
+
+    - name: Enable Wazuh agent service
+      systemd:
+        name: wazuh-agent
+        enabled: yes
+
+    - name: Start Wazuh agent service
+      systemd:
+        name: wazuh-agent
+        state: started
