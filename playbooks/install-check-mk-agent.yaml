@@ -8,7 +8,7 @@
 
     - name: Download Checkmk agent .deb package
       get_url:
-        url: https://monitor.staticfield.dk/prod/check_mk/agents/check-mk-agent_2.4.0p14-1_all.deb
+        url: https://monitor.staticfield.dk/prod/check_mk/agents/check-mk-agent_2.4.0p20-1_all.deb
         dest: /tmp/check-mk-agent_2.4.0p14-1_all.deb
         mode: '0644'
 
