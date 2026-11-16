@@ -11,25 +11,6 @@
         reboot_timeout: 1800
       register: update_result
 
-    - name: Få Update Orchestrator til at scanne igen, så Settings-GUI'en opdateres
-      ansible.windows.win_powershell:
-        script: |
-          $task = Get-ScheduledTask -TaskPath '\Microsoft\Windows\UpdateOrchestrator\' |
-            Where-Object TaskName -like 'Schedule Scan*' |
-            Select-Object -First 1
-          if (-not $task) { throw 'Fandt ingen Schedule Scan-opgave under UpdateOrchestrator' }
-          Start-ScheduledTask -InputObject $task
-          $Ansible.Result = "Startede: $($task.TaskName)"
-      become: yes
-      become_method: runas
-      become_user: SYSTEM
-      changed_when: false
-      register: uso_scan
-
-    - name: Vis hvilken scan-opgave der blev startet
-      ansible.builtin.debug:
-        var: uso_scan.result
-
     - name: Log opdateringsresultat
       ansible.windows.win_copy:
         content: "{{ update_result | to_nice_json }}"
