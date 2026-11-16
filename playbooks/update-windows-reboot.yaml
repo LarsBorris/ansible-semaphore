@@ -4,21 +4,22 @@
   gather_facts: no
   tasks:
     - name: Installer alle opdateringer via Windows Update
-      win_updates:
+      ansible.windows.win_updates:
         server_selection: default
-#        category_names: 
-#          - CriticalUpdates
-#          - SecurityUpdates
-#          - Updates
-#          - UpdateRollups
-#          - FeaturePacks
-#          - DefinitionUpdates
-#          - Upgrades
+        category_names: '*'
         reboot: yes
         reboot_timeout: 1800
       register: update_result
 
+    - name: Få Update Orchestrator til at scanne igen, så Settings-GUI'en opdateres
+      ansible.windows.win_command: UsoClient.exe StartScan
+      become: yes
+      become_method: runas
+      become_user: SYSTEM
+      changed_when: false
+      failed_when: false
+
     - name: Log opdateringsresultat
-      copy:
+      ansible.windows.win_copy:
         content: "{{ update_result | to_nice_json }}"
         dest: C:\Windows\Temp\update_log.json
