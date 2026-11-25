@@ -1,6 +1,7 @@
 ---
 - name: Install Checkmk Agent on Ubuntu 24.04 Servers
   hosts: "{{ hosts }}"
+  ignore_unreachable: yes
   become: true
   vars:
     ansible_python_interpreter: /usr/bin/python3

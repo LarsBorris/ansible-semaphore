@@ -1,6 +1,7 @@
 ---
 - name: Install and configure Wazuh Agent
   hosts: "{{ hosts }}"
+  ignore_unreachable: yes
   become: yes
 
   vars:

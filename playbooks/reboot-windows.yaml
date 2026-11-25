@@ -1,6 +1,7 @@
 ---
 - name: Reboot Windows servere
   hosts: "{{ hosts }}"   # vælg dine Windows-værter i Semaphore
+  ignore_unreachable: yes
   gather_facts: no
   tasks:
     - name: Genstart nu

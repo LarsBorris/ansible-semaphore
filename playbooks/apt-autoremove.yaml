@@ -1,6 +1,7 @@
 ---
 - name: Fjern ubrugte pakker på Linux
   hosts: "{{ hosts }}"
+  ignore_unreachable: yes
   become: yes
   vars:
     ansible_python_interpreter: /usr/bin/python3

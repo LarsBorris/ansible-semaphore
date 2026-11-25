@@ -1,6 +1,7 @@
 ---
 - name: Diagnose Windows Update tilbud
   hosts: "{{ hosts }}"
+  ignore_unreachable: yes
   gather_facts: no
   tasks:
     - name: Søg efter opdateringer (ingen installation)

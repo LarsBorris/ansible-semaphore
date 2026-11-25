@@ -1,6 +1,7 @@
 ---
 - name: Run Windows Update
   hosts: "{{ hosts }}"
+  ignore_unreachable: yes
   gather_facts: no
   tasks:
     - name: Installer alle opdateringer via Windows Update
